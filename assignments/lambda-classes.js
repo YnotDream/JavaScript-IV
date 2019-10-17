@@ -150,3 +150,6 @@ mike.grade(lisa, "Java");
 lisa.listsSubjects();
 john.PRAssignment("JavaScript");
 lisa.sprintChallenge("Design");
+
+lucas.standup("EU channel");
+karen.debugsCode(john, "JavaScript");

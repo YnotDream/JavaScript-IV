@@ -26,6 +26,10 @@ class Instructor extends People {
   grade(student, subject) {
     console.log(`${student.name} receives a perfect score on ${subject}`);
   }
+
+  assignGrade(student) {
+    student.grade = Math.floor(Math.random() * 100);
+  }
 }
 
 class Student extends People {
@@ -34,10 +38,11 @@ class Student extends People {
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = attributes.grade;
   }
 
   listsSubjects() {
-    this.favSubjects.forEach((element) => console.log(element));
+    this.favSubjects.forEach(element => console.log(element));
   }
 
   PRAssignment(subject) {
@@ -46,6 +51,12 @@ class Student extends People {
 
   sprintChallenge(subject) {
     console.log(`${this.name} has begun sprint challenge on ${subject}`);
+  }
+
+  graduate() {
+    this.grade > 70
+      ? console.log(`${this.name} has graduated!`)
+      : console.log(`${this.name} needs to work more!`);
   }
 }
 
@@ -133,11 +144,10 @@ const lucas = new ProjectManager({
   specialty: "Design",
   catchPhrase: "Less is more",
   gradClassName: "Design",
-  favInstructor: "Fred",
+  favInstructor: "Fred"
 });
 
 console.log(lucas);
-
 
 // test object methods
 
@@ -153,3 +163,12 @@ lisa.sprintChallenge("Design");
 
 lucas.standup("EU channel");
 karen.debugsCode(john, "JavaScript");
+
+mike.assignGrade(lisa);
+lucas.assignGrade(john);
+
+console.log(lisa);
+console.log(john);
+
+lisa.graduate();
+john.graduate();
